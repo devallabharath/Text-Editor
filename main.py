@@ -303,54 +303,56 @@ class win(wx.Frame):
 		if r6!='':
 			rec6=recent.Append(306,'06). '+r6); self.Bind(wx.EVT_MENU,self.openrecent6,rec6)
 
+		remre=file.Append(103,'Clear recents'); self.Bind(wx.EVT_MENU,self.rem_recents,remre)
+
 		# recent.SetBitmap(wx.Bitmap("icons/love2.ico"))
 		file.AppendSeparator()
-		save=file.Append(103,'&Save'+'\t'+kb.get('keybinds','save'), 'Save the Current file'); self.Bind(wx.EVT_MENU, self.save, save)
+		save=file.Append(104,'&Save'+'\t'+kb.get('keybinds','save'), 'Save the Current file'); self.Bind(wx.EVT_MENU, self.save, save)
 		save.SetBitmap(wx.Bitmap("icons/save.ico"))
-		saveas=file.Append(104,'Save &as'+'\t'+kb.get('keybinds','saveas'), 'Save as other doc'); self.Bind(wx.EVT_MENU,self.saveas,saveas)
+		saveas=file.Append(105,'Save &as'+'\t'+kb.get('keybinds','saveas'), 'Save as other doc'); self.Bind(wx.EVT_MENU,self.saveas,saveas)
 		saveas.SetBitmap(wx.Bitmap("icons/saveas.ico"))
 		file.AppendSeparator()
-		reloadfile=file.Append(105,'Reload file')
+		reloadfile=file.Append(106,'Reload file')
 		reloadfile.SetBitmap(wx.Bitmap("icons/reload.ico"))
-		delfile=file.Append(106,'Delete file')
+		delfile=file.Append(107,'Delete file')
 		delfile.SetBitmap(wx.Bitmap("icons/delete.ico"))
 		file.AppendSeparator()
 		exit=file.Append(999,'&Exit'+'\t'+kb.get('keybinds','exit'), 'Exit from editor'); self.Bind(wx.EVT_MENU, self.close, exit)
 		exit.SetBitmap(wx.Bitmap("icons/exit2.ico"))
 		# View Menu
 		view = wx.Menu(); menu.Append(view, '&View')
-		self.togtbar=view.AppendCheckItem(107,'Toolbar'); self.Bind(wx.EVT_MENU, self.toggletbar, self.togtbar)
+		self.togtbar=view.AppendCheckItem(108,'Toolbar'); self.Bind(wx.EVT_MENU, self.toggletbar, self.togtbar)
 		# self.togtbar.SetBitmap(wx.Bitmap("icons/font.ico"))
-		self.wrapmod=view.AppendCheckItem(108,'&Wordwrap'+'\t'+kb.get('keybinds','wrap')); self.Bind(wx.EVT_MENU, self.togglewrap, self.wrapmod)
+		self.wrapmod=view.AppendCheckItem(109,'&Wordwrap'+'\t'+kb.get('keybinds','wrap')); self.Bind(wx.EVT_MENU, self.togglewrap, self.wrapmod)
 		# self.wrapmode.SetBitmap(wx.Bitmap("icons/wrap.ico"))
-		self.fullscr=view.AppendCheckItem(109,'FullScreen'+'\t'+'F11'); self.Bind(wx.EVT_MENU, self.fullscreen, self.fullscr)
+		self.fullscr=view.AppendCheckItem(110,'FullScreen'+'\t'+'F11'); self.Bind(wx.EVT_MENU, self.fullscreen, self.fullscr)
 
 		if self.cfg.getboolean('settings','wrap')==True:
 			self.wrapmod.Check()
 
-		search=view.Append(110,'&Find'+'\t'+kb.get('keybinds','find')); self.Bind(wx.EVT_MENU, self.find, search)
+		search=view.Append(111,'&Find'+'\t'+kb.get('keybinds','find')); self.Bind(wx.EVT_MENU, self.find, search)
 		search.SetBitmap(wx.Bitmap("icons/find.ico"))
 		# Edit Menu
 		edit=wx.Menu(); menu.Append(edit,'&Edit')
 		line=wx.Menu(); edit.AppendSubMenu(line,'&Line')
-		goto=line.Append(111,'&Goto Line'+'\t'+kb.get('keybinds','goto')); self.Bind(wx.EVT_MENU, self.gotoline, goto)
+		goto=line.Append(112,'&Goto Line'+'\t'+kb.get('keybinds','goto')); self.Bind(wx.EVT_MENU, self.gotoline, goto)
 		line.AppendSeparator()
-		comm=line.Append(112, 'Comment'+'\t'+kb.get('keybinds','lcomment')); self.Bind(wx.EVT_MENU, self.comment, comm)
-		dupli=line.Append(113,'&Duplicate Line'+'\t'+kb.get('keybinds','linecopy')); self.Bind(wx.EVT_MENU, self.duplicateline, dupli)
-		delline=line.Append(114, 'Delete Line'+'\t'+kb.get('keybinds','delline')); self.Bind(wx.EVT_MENU, self.delline, delline)
+		comm=line.Append(113, 'Comment'+'\t'+kb.get('keybinds','lcomment')); self.Bind(wx.EVT_MENU, self.comment, comm)
+		dupli=line.Append(114,'&Duplicate Line'+'\t'+kb.get('keybinds','linecopy')); self.Bind(wx.EVT_MENU, self.duplicateline, dupli)
+		delline=line.Append(115, 'Delete Line'+'\t'+kb.get('keybinds','delline')); self.Bind(wx.EVT_MENU, self.delline, delline)
 		line.AppendSeparator()
-		lineup=line.Append(115,'Move Line Up'+'\t'+kb.get('keybinds','lineup')); self.Bind(wx.EVT_MENU, self.lineup, lineup)
-		linedown=line.Append(116,'Move Line Down'+'\t'+kb.get('keybinds','linedown')); self.Bind(wx.EVT_MENU, self.linedown, linedown)
-		unindent=line.Append(117, 'Unindent Line'); self.Bind(wx.EVT_MENU,self.unindent,unindent)
-		indent=line.Append(118, 'Indent Line'); self.Bind(wx.EVT_MENU,self.indent,indent)
+		lineup=line.Append(116,'Move Line Up'+'\t'+kb.get('keybinds','lineup')); self.Bind(wx.EVT_MENU, self.lineup, lineup)
+		linedown=line.Append(117,'Move Line Down'+'\t'+kb.get('keybinds','linedown')); self.Bind(wx.EVT_MENU, self.linedown, linedown)
+		unindent=line.Append(118, 'Unindent Line'); self.Bind(wx.EVT_MENU,self.unindent,unindent)
+		indent=line.Append(119, 'Indent Line'); self.Bind(wx.EVT_MENU,self.indent,indent)
 		convcase=wx.Menu(); edit.AppendSubMenu(convcase,'&Convert Case')
-		upcase=convcase.Append(119, '&UpperCase'+'\t'+kb.get('keybinds','lowcase')); self.Bind(wx.EVT_MENU, self.uppercase, upcase)
-		locase=convcase.Append(120, '&LowerCase'+'\t'+kb.get('keybinds','upcase')); self.Bind(wx.EVT_MENU, self.lowercase, locase)
+		upcase=convcase.Append(120, '&UpperCase'+'\t'+kb.get('keybinds','lowcase')); self.Bind(wx.EVT_MENU, self.uppercase, upcase)
+		locase=convcase.Append(121, '&LowerCase'+'\t'+kb.get('keybinds','upcase')); self.Bind(wx.EVT_MENU, self.lowercase, locase)
 		# Settings Menu
 		prefs=wx.Menu(); menu.Append(prefs, '&Preferences')
-		stylesetts=prefs.Append(121,'Settings'); self.Bind(wx.EVT_MENU, self.stylesetts, stylesetts)
+		stylesetts=prefs.Append(122,'Settings'); self.Bind(wx.EVT_MENU, self.stylesetts, stylesetts)
 		stylesetts.SetBitmap(wx.Bitmap("icons/settings.ico"))
-		keysetts=prefs.Append(122, 'Key Bindings'); self.Bind(wx.EVT_MENU , self.keybinds, keysetts)
+		keysetts=prefs.Append(123, 'Key Bindings'); self.Bind(wx.EVT_MENU , self.keybinds, keysetts)
 		keysetts.SetBitmap(wx.Bitmap("icons/keys.ico"))
 
 	def init(self):
@@ -373,14 +375,20 @@ class win(wx.Frame):
 		globals().update(run)
 		r1=rfs.get('recent','r1')
 		if r1 != '':
-			self.filepath=r1
-			file = open(r1, 'r', encoding='utf-8')
-			self.control.SetValue(file.read())
-			self.control.SetModified(False)
-			self.control.SetFocus()
-			self.title()
-			self.syntax()
-			self.statbar()
+			try :
+				self.filepath=r1
+				file = open(r1, 'r', encoding='utf-8')
+				self.control.SetValue(file.read())
+				self.control.SetModified(False)
+				self.control.SetFocus()
+				self.title()
+				self.syntax()
+				self.statbar()
+			except:
+				self.filepath=''
+				self.fileext=''
+				self.SetTitle('Dev-Pad')
+
 		else:
 			self.filepath=''
 			self.fileext=''
@@ -562,23 +570,41 @@ class win(wx.Frame):
 		self.statbar()
 		self.syntax()
 	def openrecent1(self,e):
-		self.filepath=self.rtm.get('recent','r1')
-		self.openrecent()
+		try:
+			self.filepath=self.rtm.get('recent','r1')
+			self.openrecent()
+		except:
+			pass
 	def openrecent2(self,e):
-		self.filepath=self.rtm.get('recent','r2')
-		self.openrecent()
+		try:
+			self.filepath=self.rtm.get('recent','r2')
+			self.openrecent()
+		except:
+			pass
 	def openrecent3(self,e):
-		self.filepath=self.rtm.get('recent','r3')
-		self.openrecent()
+		try:
+			self.filepath=self.rtm.get('recent','r3')
+			self.openrecent()
+		except:
+			pass
 	def openrecent4(self,e):
-		self.filepath=self.rtm.get('recent','r4')
-		self.openrecent()
+		try:
+			self.filepath=self.rtm.get('recent','r4')
+			self.openrecent()
+		except:
+			pass
 	def openrecent5(self,e):
-		self.filepath=self.rtm.get('recent','r5')
-		self.openrecent()
+		try:
+			self.filepath=self.rtm.get('recent','r5')
+			self.openrecent()
+		except:
+			pass
 	def openrecent6(self,e):
-		self.filepath=self.rtm.get('recent','r6')
-		self.openrecent()
+		try:
+			self.filepath=self.rtm.get('recent','r6')
+			self.openrecent()
+		except:
+			pass
 
 	# Main Functions
 	def runtime(self):
@@ -623,6 +649,11 @@ class win(wx.Frame):
 			with open('runtime', 'w') as file:
 			    cfg.write(file)
 			self.Menu()
+
+	def rem_recents(self,e):
+		self.r1=self.filepath
+		self.r2=self.r3=self.r4=self.r5=self.r6=''
+		self.write()
 
 	def write(self):
 		cfg=configparser.RawConfigParser()
