@@ -9,7 +9,7 @@ class win(wx.Frame):
 		super(win, self).__init__(*args, **kwargs)
 		self.Show()
 		self.SetIcon(wx.Icon("icons/icon.ico"))
-		self.SetSize(1000,600)
+		# self.SetSize(1000,600)
 		self.Center()
 		# self.Move(90,50)
 		# self.Maximize(True)
@@ -362,9 +362,10 @@ class win(wx.Frame):
 		else:
 			self.control.SetWrapMode(0)
 
-		if self.cfg.getboolean('settings','toolbar')==True:
-			self.toolbar()
-			self.togtbar.Check()
+		if wx.Platform == '__WXMSW__':
+			if self.cfg.getboolean('settings','toolbar')==True:
+				self.toolbar()
+				self.togtbar.Check()
 
 		rfs=configparser.RawConfigParser()
 		rfs.read('runtime')
