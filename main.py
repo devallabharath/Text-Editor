@@ -10,8 +10,8 @@ class win(wx.Frame):
 		self.Show()
 		self.SetIcon(wx.Icon("icons/icon.ico"))
 		self.SetSize(1000,600)
-#		self.Move(90,50)
 		self.Center()
+		# self.Move(90,50)
 		# self.Maximize(True)
 		# self.ShowFullScreen(True)
 
@@ -385,12 +385,11 @@ class win(wx.Frame):
 				self.syntax()
 				self.statbar()
 			except:
-				self.filepath=''
+				self.filepath='untitled'
 				self.fileext=''
-				self.SetTitle('Dev-Pad')
-
+				self.title()
 		else:
-			self.filepath=''
+			self.filepath='untitled'
 			self.fileext=''
 			self.SetTitle('Dev-Pad')
 
