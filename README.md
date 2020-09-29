@@ -14,7 +14,6 @@ A completly scratch built editor for windows in python, based on wxpython.<br>
 
 
 ### Features
-* Light-weight
 * Themed
 * Syntax Highlight
 * Multi Cursor Support
@@ -24,12 +23,29 @@ A completly scratch built editor for windows in python, based on wxpython.<br>
 
 ### Dependencies
 * python3
-* wxpython
-<code>pip install wxpython</code>
-* configparser
-<code>pip install configparser</code>
+* wxpython <code>pip install wxpython</code>
+* configparser <code>pip install configparser</code>
 
 
 ### Running
 Goto the directory run <code>main.py</code> in terminal <br>
 <code>python main.py</code>
+
+### Keybindings
+* Ctrl+N       (New file)
+* Ctrl+O       (Open file)
+* Ctrl+S       (Save file)
+* Ctrl+Shift+S (SaveAs file)
+* Ctrl+Q       (Exit)
+* F11          (Fullscreen)
+* Alt+W        (Enable/Disable wordwrap)
+* Alt+C        (Inline Comment)
+* Alt+Up       (Move line up)
+* Alt+Down     (Move line down)
+* Alt+Left     (Unindent line)
+* Alt+Right    (Indent line)
+* Alt+D        (Duplicate line)
+* Alt+X        (Delete line)
+* Alt+L        (convert to Lowercase)
+* Alt+U        (convert to Uppercase)
+* Ctrl+Shift+L (Goto line)
