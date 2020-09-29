@@ -10,7 +10,6 @@
 
 <p align="center">
 A completly scratch built editor for windows in python, based on wxpython.<br>
-Original coolplayer source available at <code> sourceforge</code>  (http://coolplayer.sourceforge.net)
 </p>
 
 
@@ -32,6 +31,5 @@ Original coolplayer source available at <code> sourceforge</code>  (http://coolp
 
 
 ### Running
-<br>
 Goto the directory run <code>main.py</code> in terminal <br>
 <code>python main.py</code>
