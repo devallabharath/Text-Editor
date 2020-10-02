@@ -97,7 +97,7 @@ class win(wx.Frame):
 		self.control.SetEdgeColour('#aaaaaa')
 		# self.control.SetTabDrawMode(3)
 		self.control.SetIndentationGuides(self.cfg.getboolean('settings','IndentGuides'))
-		self.control.SetTabWidth(self.cfg.getint('settings','Tabwidth'))
+		self.control.SetTabWidth(self.cfg.getint('settings','Tabwidh'))
 		self.control.SetViewWhiteSpace(self.cfg.getboolean('settings','ShowWhitespaces'))
 		self.control.SetWhitespaceSize(self.cfg.getint('settings','WhitespaceSize'))
 		self.foldSymbols = 2
