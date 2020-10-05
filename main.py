@@ -10,11 +10,9 @@ class win(wx.Frame):
 		super(win, self).__init__(*args, **kwargs)
 		self.Show()
 		self.SetIcon(wx.Icon("icons/icon.ico"))
-		# self.SetSize(1000,600)
 		self.Center()
-		# self.Move(90,50)
+		# self.SetSize(1000,600)
 		# self.Maximize(True)
-		# self.ShowFullScreen(True)
 
 		self.cfg = configparser.RawConfigParser()
 		self.cfg.read('style.cfg')
@@ -119,7 +117,8 @@ class win(wx.Frame):
 		if r6!='':
 			rec6=recent.Append(306,'06). '+r6); self.Bind(wx.EVT_MENU,self.openrecent6,rec6)
 
-		remre=file.Append(103,'Clear recents'); self.Bind(wx.EVT_MENU,self.rem_recents,remre)
+		recent.AppendSeparator()
+		remre=recent.Append(103,'Clear recents'); self.Bind(wx.EVT_MENU,self.rem_recents,remre)
 
 		# recent.SetBitmap(wx.Bitmap("icons/love2.ico"))
 		file.AppendSeparator()
@@ -194,7 +193,7 @@ class win(wx.Frame):
 		if r1 != '':
 			try :
 				self.filepath=r1
-				file = open(r1, 'r', encoding='utf-8')
+				file = open(r1, 'r')
 				self.control.SetValue(file.read())
 				self.control.SetModified(False)
 				self.control.SetFocus()
@@ -269,7 +268,7 @@ class win(wx.Frame):
 			pass
 
 	def stylesetts(self,e):
-		settfile=open('style.cfg', 'r', encoding='utf-8')
+		settfile=open('style.cfg', 'r')
 		if self.control.GetModify()==True:
 			dlg = wx.MessageDialog(self, 'Do you want to Save the file??','Alert',wx.YES_NO | wx.ICON_QUESTION)
 			ans = dlg.ShowModal()
@@ -280,23 +279,21 @@ class win(wx.Frame):
 				self.control.SetModified(False)
 				self.title()
 				self.statbar()
-				# self.syntax()
 			else:
 				self.control.SetValue(settfile.read())
 				self.filepath='style.cfg'
 				self.control.SetModified(False)
 				self.title()
 				self.statbar()
-				# self.syntax()
 		else:
 			self.control.SetValue(settfile.read())
 			self.filepath='style.cfg'
 			self.control.SetModified(False)
 			self.title()
 			self.statbar()
-			# self.syntax()
+
 	def keybinds(self,e):
-		keys=open('keybinds.cfg', 'r', encoding='utf-8')
+		keys=open('keybinds.cfg', 'r')
 		if self.control.GetModify()==True:
 			dlg = wx.MessageDialog(self, 'Do you want to Save the file??','Alert',wx.YES_NO | wx.ICON_QUESTION)
 			ans = dlg.ShowModal()
@@ -378,7 +375,7 @@ class win(wx.Frame):
 			self.statusbar.SetStatusText("          "+self.fileext+' File',2)
 
 	def openrecent(self):
-		file=open(self.filepath,'r',encoding='utf-8')
+		file=open(self.filepath,'r')
 		self.control.SetValue(file.read())
 		self.title()
 		self.control.SetModified(False)
@@ -520,7 +517,7 @@ class win(wx.Frame):
 			pass
 		else:
 			self.filepath=files.GetPath()
-			file = open(self.filepath, 'r', encoding='utf-8')
+			file = open(self.filepath, 'r')
 			self.control.SetValue(file.read())
 			self.title()
 			self.control.SetModified(False)
