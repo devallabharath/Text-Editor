@@ -12,7 +12,7 @@ class win(wx.Frame):
 		self.SetIcon(wx.Icon("icons/icon.ico"))
 		self.Center()
 		# self.SetSize(1000,600)
-		# self.Maximize(True)
+		self.Maximize(True)
 
 		self.cfg = configparser.RawConfigParser()
 		self.cfg.read('style.cfg')
