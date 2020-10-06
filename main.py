@@ -95,6 +95,7 @@ class win(wx.Frame):
 
 		menu = wx.MenuBar()
 		self.SetMenuBar(menu)
+
 		# File Menu
 		file = wx.Menu(); menu.Append(file, '&File');
 		new=file.Append(100,'&New'+'\t'+kb.get('keybinds','new'), 'Creates New File'); self.Bind(wx.EVT_MENU, self.new, new)
@@ -116,10 +117,8 @@ class win(wx.Frame):
 			rec5=recent.Append(305,'05). '+r5); self.Bind(wx.EVT_MENU,self.openrecent5,rec5)
 		if r6!='':
 			rec6=recent.Append(306,'06). '+r6); self.Bind(wx.EVT_MENU,self.openrecent6,rec6)
-
 		recent.AppendSeparator()
 		remre=recent.Append(103,'Clear recents'); self.Bind(wx.EVT_MENU,self.rem_recents,remre)
-
 		# recent.SetBitmap(wx.Bitmap("icons/love2.ico"))
 		file.AppendSeparator()
 		save=file.Append(104,'&Save'+'\t'+kb.get('keybinds','save'), 'Save the Current file'); self.Bind(wx.EVT_MENU, self.save, save)
@@ -134,6 +133,7 @@ class win(wx.Frame):
 		file.AppendSeparator()
 		exit=file.Append(999,'&Exit'+'\t'+kb.get('keybinds','exit'), 'Exit from editor'); self.Bind(wx.EVT_MENU, self.close, exit)
 		exit.SetBitmap(wx.Bitmap("icons/exit2.ico"))
+
 		# View Menu
 		view = wx.Menu(); menu.Append(view, '&View')
 		self.togtbar=view.AppendCheckItem(108,'Toolbar'); self.Bind(wx.EVT_MENU, self.toggletbar, self.togtbar)
@@ -147,6 +147,7 @@ class win(wx.Frame):
 
 		search=view.Append(111,'&Find'+'\t'+kb.get('keybinds','find')); self.Bind(wx.EVT_MENU, self.find, search)
 		search.SetBitmap(wx.Bitmap("icons/find.ico"))
+
 		# Edit Menu
 		edit=wx.Menu(); menu.Append(edit,'&Edit')
 		line=wx.Menu(); edit.AppendSubMenu(line,'&Line')
@@ -163,6 +164,7 @@ class win(wx.Frame):
 		convcase=wx.Menu(); edit.AppendSubMenu(convcase,'&Convert Case')
 		upcase=convcase.Append(120, '&UpperCase'+'\t'+kb.get('keybinds','lowcase')); self.Bind(wx.EVT_MENU, self.uppercase, upcase)
 		locase=convcase.Append(121, '&LowerCase'+'\t'+kb.get('keybinds','upcase')); self.Bind(wx.EVT_MENU, self.lowercase, locase)
+
 		# Settings Menu
 		prefs=wx.Menu(); menu.Append(prefs, '&Preferences')
 		stylesetts=prefs.Append(122,'Settings'); self.Bind(wx.EVT_MENU, self.stylesetts, stylesetts)
@@ -339,7 +341,6 @@ class win(wx.Frame):
 		self.Bind(wx.EVT_TOOL, self.close, exit)
 
 	def statbar(self):
-		# self.filetype()
 		if self.filepath=='untitled':
 			self.statusbar.SetStatusText('          Untitled',2)
 		elif self.fileext=='.cfg':
@@ -572,18 +573,6 @@ class win(wx.Frame):
 		else:
 			self.Destroy()
 
-	# snippets : WriteText('text') at caret
-	# self.control.AddText('devalla bharath')
-	# self.control.BackTab() in curr line
-	# LineCut()
-	# LineTranspose() switch curr with pre
-	# LoadLexerLibrary(path)
-	# MarkerAdd(line,id)
-	# MarkerDelete(line, id)
-	# MarkerDeleteAll(id)
-	# start = self.PositionFromLine(line)
-    # end = self.GetLineEndPosition(line)
-    # text = self.GetTextRange(start, end)
 
 app=wx.App()
 win(None)
