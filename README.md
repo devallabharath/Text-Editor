@@ -23,8 +23,8 @@ A completly scratch built editor for windows in python, based on wxpython.<br>
 
 ### Dependencies
 * python3
-* wxpython <code>pip install wxpython</code>
-* configparser <code>pip install configparser</code>
+* wxpython <code>pip3 install wxpython</code>
+* configparser <code>pip3 install configparser</code>
 
 
 ### Running
