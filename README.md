@@ -29,7 +29,7 @@ A completly scratch built editor for windows in python, based on wxpython.<br>
 
 ### Running
 Goto the directory run <code>main.py</code> in terminal <br>
-<code>python main.py</code>
+<code>python3 main.py</code>
 
 ### Keybindings
 * Ctrl+N ----------(New file)
