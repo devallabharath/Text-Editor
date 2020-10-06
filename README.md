@@ -3,7 +3,7 @@
 [Dev-Pad](https://github.com/devallabharath/Dev-pad)
 
 ![OpenSource](https://img.shields.io/badge/OpenSource-Yes-green)
-![OS](https://img.shields.io/badge/OS-Windows-blue)
+![OS](https://img.shields.io/badge/OS-Multi-blue)
 ![License](https://img.shields.io/badge/License-GPL2-yellow)
 
 </h1>
