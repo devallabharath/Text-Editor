@@ -87,18 +87,52 @@ class win(wx.Frame):
 				self.control.SetValue(settfile.read())
 				self.filepath='style.cfg'
 				self.control.SetModified(False)
+				syntax.syntax(self)
 				self.title()
 				self.statbar()
 			else:
 				self.control.SetValue(settfile.read())
 				self.filepath='style.cfg'
 				self.control.SetModified(False)
+				syntax.syntax(self)
 				self.title()
 				self.statbar()
 		else:
 			self.control.SetValue(settfile.read())
 			self.filepath='style.cfg'
 			self.control.SetModified(False)
+			syntax.syntax(self)
+			self.title()
+			self.statbar()
+
+	def keybinds(self,e):
+		keys=open('keybinds.cfg', 'r')
+		if self.control.GetModify()==True:
+			dlg = wx.MessageDialog(self, 'Do you want to Save the file??','Alert',wx.YES_NO | wx.ICON_QUESTION)
+			ans = dlg.ShowModal()
+			if ans==wx.ID_YES:
+				self.save(e)
+				self.control.SetValue(keys.read())
+				self.filepath='keybinds.cfg'
+				self.filetype
+				self.control.SetModified(False)
+				syntax.syntax(self)
+				self.title()
+				self.statbar()
+			else:
+				self.control.SetValue(keys.read())
+				self.filepath='keybinds.cfg'
+				self.filetype
+				self.control.SetModified(False)
+				syntax.syntax(self)
+				self.title()
+				self.statbar()
+		else:
+			self.control.SetValue(keys.read())
+			self.filepath='keybinds.cfg'
+			self.filetype
+			self.control.SetModified(False)
+			syntax.syntax(self)
 			self.title()
 			self.statbar()
 
@@ -197,31 +231,6 @@ class win(wx.Frame):
 			self.filepath='untitled'
 			self.fileext=''
 			self.SetTitle('Dev-Pad')
-
-	def keybinds(self,e):
-		keys=open('keybinds.cfg', 'r')
-		if self.control.GetModify()==True:
-			dlg = wx.MessageDialog(self, 'Do you want to Save the file??','Alert',wx.YES_NO | wx.ICON_QUESTION)
-			ans = dlg.ShowModal()
-			if ans==wx.ID_YES:
-				self.save(e)
-				self.control.SetValue(keys.read())
-				self.filepath='keybinds.cfg'
-				self.control.SetModified(False)
-				self.title()
-				self.statbar()
-			else:
-				self.control.SetValue(keys.read())
-				self.filepath='keybinds.cfg'
-				self.control.SetModified(False)
-				self.title()
-				self.statbar()
-		else:
-			self.control.SetValue(keys.read())
-			self.filepath='keybinds.cfg'
-			self.control.SetModified(False)
-			self.title()
-			self.statbar()
 
 	def toggletbar(self,e):
 		if self.togtbar.IsChecked()==True:
