@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-A completly scratch built editor for windows in python, based on wxpython.<br>
+A completly scratch built multi-platform editor in python, based on wxpython.<br>
 </p>
 
 
